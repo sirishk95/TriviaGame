@@ -2,38 +2,43 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Music Trivia Game</title>
-	<link href="assets/css/reset.css" rel="stylesheet">
+    <title>Music Trivia Game</title>
+    <link href="assets/css/reset.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link href="assets/css/style.css" rel="stylesheet">
 </head>
 <body>
 	<header>
+            <h1 class="text-center">Music Trivia Quiz</h1>
 	</header>
 
 	<div class = 'container'>
 		
 		<button class = 'btn btn-primary' id = 'startBtn'>Start</button>
 			<!-- Question page -->
-			<div id = timeLeft></div> 
-			<div id = currentQuestion></div> 
-			<div class = 'question'></div>
-			<div class = 'answerList'></div>
+			<div id =timeLeft></div> 
+			<div id =currentQuestion></div> 
+			<div class ='question'></div>
+			<div class ='answerList'></div>
 		
 			<!-- Answer Page -->
-			<div id = message></div>
-			<div id = correctedAnswer></div>
-			<div id = gif></div>
+			<div id =message></div>
+            <div id =correctedAnswer></div>
+            <div id=gif></div>
+            
+            
+            
 		
 			<!-- Scoreboard -->
-			<div id = finalMessage></div>
-			<div id = correctAnswers></div>
-			<div id = incorrectAnswers></div>
-			<div id = unAnswered></div>
-			<div id = 'startOverBtn'></div>
+			<div id =finalMessage></div>
+			<div id =correctAnswers></div>
+			<div id =incorrectAnswers></div>
+			<div id =unAnswered></div>
+			<div id ='startOverBtn'></div>
 	</div>
 
-	<script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 	<script type = "text/javascript" src="assets/javascript/app.js"></script>
 </body>
 </html>
