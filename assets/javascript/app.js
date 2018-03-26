@@ -26,7 +26,7 @@ var gameQuestions = [{
     answer: 0
 }];
 
-var search = ['bon+jovi', 'the+beatles','jimi+hendrix', 'victoria+beckham', 'k-pop+south+korea', 'music+industry+award'];
+var questionArray = ['question1', 'question2','question3', 'question4', 'question5', 'question6'];
 var currentQuestion;
 var correctAnswer;
 var incorrectAnswer;
@@ -43,7 +43,7 @@ var messages = {
     finished: "Game Over! Let's see the results."
 }
 
-$('#startBtn').on('click', function(){
+$('#startBtn').on('click', function() {
     $(this).hide();
     newGame();
 });
@@ -60,6 +60,7 @@ function newGame() {
     $('#unAnswered').empty();
     currentQuestion = 0;
     correctAnswer = 0;
+    incorrectAnswer = 0;
     unAnswered = 0;
     newQuestion();
 }
@@ -68,17 +69,20 @@ function newQuestion() {
     $("#message").empty();
     $('#correctAnswer').empty();
     $('#gif').empty();
+
     answered = true;
+
 // sets up new questions & answerlist
     $('#currentQuestion').html('Question #'+(currentQuestion+1)+'/'+gameQuestions.length);
     $('.question').html('<h2>' + gameQuestions[currentQuestion].question + '<h2>');
     for (var i = 0; i < 4; i++) {
         var choices = $('<div>');
+    
     }
     countdown();
     //clicking an answer will pause the time and setup answerPage
     $('.thisChoice').on('click', function() {
-        userSelect=$(this).data('index');
+        userSelect = $(this).data('index');
         clearInterval(time);
         answerPage();
     });
@@ -110,6 +114,8 @@ function answerPage() {
 
     var rightAnswerIndex = gameQuestions[currentQuestion].answer;
 
+    $('#gif').html('<img src ="assets/images' + questionArray[currentQuestion] + '.gif" width = "400px">' );
+
     if((userSelect == rightAnswerIndex) && (answered==true)) {
         correctAnswer++
         $('#message').html(messages.correct);
@@ -139,11 +145,11 @@ function scoreboard() {
     $('#timeLeft').empty();
     $('#message').empty();
     $('correctedAnswer').empty();
-
+    $('#gif').empty();
     $('#finalmessage').html(messages.finished);
     $('#correctAnswers').html("Correct Answers: " + correctAnswer);
     $('#incorrectAnswers').html("Incorrect Answers: " + incorrectAnswer);
-    $('#unanswered').html("Unanswered: " + unAnswered);
+    $('#unanswered').html("unAnswered: " + unAnswered);
     $('#startOverBtn').addClass('reset');
     $('#startOverBtn').show();
     $('#startOverBtn').html('Start Over?');
